@@ -1,0 +1,56 @@
+---
+title: 'Trust & Safety'
+description: 'How Naridon secures your data and ensures safe AI interactions'
+icon: 'shield-check'
+---
+
+## AI Guardrails
+
+Naridon implements strict guardrails to ensure that AI interactions on your storefront are safe, accurate, and on-brand.
+
+### 1. Hallucination Prevention
+We use a **Retrieval-Augmented Generation (RAG)** architecture that grounds all AI responses in your actual store data.
+- **Fact-Checking**: The AI is explicitly instructed to only answer questions based on the provided product catalog and knowledge base.
+- **"I Don't Know" Fallback**: If the AI cannot find an answer in your data, it is trained to admit it politely rather than inventing information.
+
+### 2. PII Redaction
+To protect your customers' privacy, Naridon automatically detects and redacts Personally Identifiable Information (PII) before sending data to any LLM.
+- **Redacted Fields**: Email addresses, phone numbers, and credit card patterns are masked in logs and processing pipelines.
+- **Compliance**: This ensures compliance with GDPR and Shopify's data protection requirements.
+
+### 3. Brand Safety & Tone
+You have control over how the AI speaks to your customers.
+- **Profanity Filters**: Strict filters prevent the AI from generating or engaging with offensive language.
+- **Competitor Blocking**: The AI is trained not to discuss or recommend competitor brands, even if asked directly.
+- **Tone Enforcement**: Whether you choose "Professional" or "Friendly," the AI adheres to system prompts that enforce your specific brand voice.
+
+## Data Privacy
+
+We take data stewardship seriously. We only process the data necessary to provide our services.
+
+### What We Access
+- **Product Data**: Titles, descriptions, prices, and inventory levels (to provide accurate answers).
+- **Store Policy**: Shipping, return, and privacy policies you upload to the Knowledge Base.
+- **Interaction Logs**: Anonymous chat logs to help you analyze customer intent.
+
+### What We Do NOT Store
+- **Customer Payment Info**: We never access or store credit card details.
+- **Passwords**: We do not have access to customer account passwords.
+
+## Security Infrastructure
+
+Naridon is built on enterprise-grade infrastructure.
+
+- **Encryption**: All data is encrypted in transit (TLS 1.2+) and at rest (AES-256).
+- **Shopify Native**: We are an embedded Shopify App, meaning we leverage Shopify's secure authentication (OAuth) for admin access. We do not manage separate usernames/passwords for your staff.
+- **LLM Security**: We use enterprise APIs from OpenAI and Anthropic which do not train their models on your API data (Zero Data Retention policies where applicable).
+
+## Compliance
+
+### GDPR & CCPA
+Naridon is designed to be GDPR and CCPA compliant.
+- **Right to Erasure**: When a customer requests data deletion via Shopify, we automatically purge associated chat logs and data.
+- **Data Processing Agreement**: Our terms include standard DPA clauses protecting your rights as a data controller.
+
+For more details, please contact our Data Protection Officer at [privacy@naridon.com](mailto:privacy@naridon.com).
+

@@ -30,6 +30,12 @@
               "features/copilot",
               "features/analytics"
             ]
+          },
+          {
+            "group": "Security & Compliance",
+            "pages": [
+              "trust-safety"
+            ]
           }
         ]
       }
