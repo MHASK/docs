@@ -34,7 +34,8 @@
           {
             "group": "Security & Compliance",
             "pages": [
-              "trust-safety"
+              "trust-safety",
+              "compliance/gdpr"
             ]
           }
         ]

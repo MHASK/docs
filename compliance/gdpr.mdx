@@ -1,0 +1,63 @@
+---
+title: 'GDPR & Data Security'
+description: 'Technical details on data protection, encryption, and compliance'
+icon: 'lock'
+---
+
+## Data Protection Overview
+
+Naridon acts as a **Data Processor** for the personal data of your customers. You, the merchant, are the **Data Controller**. We process data only on your behalf and in accordance with your instructions (via the Shopify API).
+
+## Technical Security Measures
+
+### Encryption
+- **Data in Transit**: All data transmitted between your Shopify store, our servers, and third-party LLM providers is encrypted using **TLS 1.2+** (Transport Layer Security).
+- **Data at Rest**: All database volumes and backups are encrypted using **AES-256** encryption standards.
+
+### Infrastructure
+- **Hosting**: Our infrastructure is hosted on **Vercel** and **Supabase** (AWS), located in secure data centers with SOC 2 Type II certification.
+- **Access Control**: Access to production data is restricted to authorized engineers on a strictly need-to-know basis, protected by Multi-Factor Authentication (MFA).
+
+## GDPR Compliance
+
+We are fully committed to GDPR compliance. Here is how we support your obligations:
+
+### 1. Right to Erasure (Right to be Forgotten)
+When a customer requests data deletion via your Shopify Admin:
+1. Shopify sends a `customers/redact` webhook to Naridon.
+2. Naridon automatically identifies all chat logs, analytics, and session data associated with that customer.
+3. We purge this data from our systems within **72 hours**.
+4. We confirm the deletion to Shopify.
+
+### 2. Right to Access
+If a customer requests a copy of their data:
+1. Shopify sends a `customers/data_request` webhook.
+2. We compile a JSON export of all conversations and interactions stored for that customer ID.
+3. This is returned to Shopify to be forwarded to the customer.
+
+### 3. Data Minimization
+We only store data required to provide the service:
+- **Product Data**: To power the search index.
+- **Anonymized Analytics**: Aggregate counts of searches and clicks.
+- **Chat Logs**: Retained for **30 days** to allow for quality improvement and analytics, then anonymized.
+
+## Sub-Processors
+
+Naridon uses the following third-party sub-processors to provide our service. All sub-processors are vetted for security and compliance.
+
+| Sub-Processor | Purpose | Location |
+| :--- | :--- | :--- |
+| **Shopify** | E-commerce Platform & Auth | Canada / Global |
+| **OpenAI** | LLM Inference (Zero Retention) | USA |
+| **Anthropic** | LLM Inference (Zero Retention) | USA |
+| **Vercel** | Hosting & Edge Functions | Global |
+| **Supabase** | Database & Vector Store | USA (AWS) |
+
+*> Note: We have opted out of data training with our LLM providers. Your store data is NOT used to train OpenAI or Anthropic models.*
+
+## Incident Response
+
+In the event of a data breach, Naridon has an Incident Response Plan in place.
+- **Detection**: 24/7 monitoring of infrastructure.
+- **Notification**: We will notify affected merchants within **48 hours** of becoming aware of a confirmed breach involving personal data.
+
