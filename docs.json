@@ -66,9 +66,9 @@
   },
   "contextual": {
     "options": [
-      "copy",
-      "view"
-    ]
+     "copy",
+     "view"
+   ]
   },
   "footer": {
     "socials": {}
