@@ -17,15 +17,17 @@
             "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart"
+              "quickstart",
+              "features/settings"
             ]
           },
           {
             "group": "Core Features",
             "pages": [
               "features/aio-engine",
-              "features/copilot",
+              "features/competitors",
               "features/fix-engine",
+              "features/copilot",
               "features/analytics"
             ]
           }
@@ -66,9 +68,9 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view"
-   ]
+      "copy",
+      "view"
+    ]
   },
   "footer": {
     "socials": {}
