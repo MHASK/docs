@@ -27,7 +27,6 @@
               "features/aio-engine",
               "features/competitors",
               "features/fix-engine",
-              "features/copilot",
               "features/analytics"
             ]
           },
