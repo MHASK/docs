@@ -8,35 +8,22 @@ icon: 'gear'
 
 Manage how Naridon interacts with your store data and how autonomously it operates.
 
-### Zero-Click Automation
-- **Enable Auto-Pilot**: Naridon will scan your store daily for optimization opportunities.
-- **Enable Zero-Click Execution**: Allows Naridon to automatically apply "safe" fixes (like adding missing descriptions) without requiring manual approval.
+### Automation Settings
+Configure how Naridon scans and optimizes your store automatically.
 
 ### Safety & Limits
-You can control the confidence level required for Naridon to act.
-
-| Level | Description |
-| :--- | :--- |
-| **Conservative** | Safe fixes only. Requires high confidence. (Recommended for starting) |
-| **Balanced** | A mix of safety and growth. |
-| **Aggressive** | Prioritizes maximum visibility growth. May make bolder content changes. |
-
-- **Daily Fix Limit**: Cap the number of products Naridon can update per day (Default: 5).
+Control the level of automation and set limits on how many changes can be made.
 
 ### Permissions
-- **Auto-Fix Descriptions**: Allow Naridon to rewrite or expand product descriptions.
-- **Auto-Fix Titles**: Allow Naridon to optimize product titles. *Note: Titles affect URL handles and external ads, so this is disabled by default.*
+Manage what types of content Naridon can automatically update.
 
-## AI Sitemap (llms.txt)
+## AI Sitemap
 
-Naridon generates a specialized `llms.txt` file for your store. This is a standard file used by AI crawlers (like OpenAI and Anthropic) to understand the structure and content of your website efficiently.
+Naridon generates specialized files to help AI models understand your store structure and content.
 
 ### Configuration
-- **Enable AI Sitemap**: Toggles the public visibility of the file at `yourstore.com/apps/naridon/llms.txt`.
-- **Content Inclusion**: Choose whether to include Products, Collections, and Blog Posts.
-- **Custom Brand Guidelines**: Add specific instructions for AI bots.
-  > *Example: "We are a sustainable brand. Emphasize our plastic-free packaging and lifetime warranty in all summaries."*
+Configure what content is included and add custom guidelines for AI models.
 
 ### Why this matters
-Having a clean `llms.txt` increases the chance that an AI model will index your site correctly and use your most up-to-date information in its answers.
+Proper configuration helps ensure AI models can correctly index and reference your store information.
 
