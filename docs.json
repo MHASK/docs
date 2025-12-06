@@ -34,7 +34,15 @@
             "group": "Security & Compliance",
             "pages": [
               "trust-safety",
-              "compliance/gdpr"
+              "compliance/gdpr",
+              "compliance/privacy",
+              "compliance/terms"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "contact"
             ]
           }
         ]
