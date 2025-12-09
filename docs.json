@@ -37,6 +37,9 @@
               "compliance/gdpr",
               "compliance/privacy",
               "compliance/terms",
+              "compliance/cookie-policy",
+              "compliance/acceptable-use",
+              "compliance/sla",
               "compliance/imprint"
             ]
           },
