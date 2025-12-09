@@ -36,7 +36,8 @@
               "trust-safety",
               "compliance/gdpr",
               "compliance/privacy",
-              "compliance/terms"
+              "compliance/terms",
+              "compliance/imprint"
             ]
           },
           {
