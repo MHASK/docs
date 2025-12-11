@@ -4,26 +4,30 @@ description: 'Manage global settings, automation levels, and your AI Sitemap'
 icon: 'gear'
 ---
 
-## AIO Controls
+## Automation Settings (Auto-Pilot)
 
-Manage how Naridon interacts with your store data and how autonomously it operates.
+Control how autonomously Naridon improves your store data. You can find these settings in the **Improve** tab.
 
-### Automation Settings
-Configure how Naridon scans and optimizes your store automatically.
+### Autonomy Levels
+| Level | Description |
+| :--- | :--- |
+| **Conservative** | **Suggest Only**. Naridon generates fixes but waits for your approval. Best for starting out. |
+| **Balanced** | **Hybrid**. Safe fixes (like empty fields) are applied automatically; complex changes require review. |
+| **Aggressive** | **Full Auto**. Prioritizes maximum visibility growth. Automatically applies optimized descriptions and alt text. |
 
-### Safety & Limits
-Control the level of automation and set limits on how many changes can be made.
+### Execution Controls
+- **Zero-Click Execution**: Toggle to allow "Safe Fixes" (e.g., filling missing alt text) to run without manual approval, regardless of mode.
+- **Daily Fix Limit**: Set a cap on the number of products processed per day (Default: 5 for Starter plans).
 
-### Permissions
-Manage what types of content Naridon can automatically update.
+## AI Sitemap (llms.txt)
 
-## AI Sitemap
+Naridon generates a specialized `llms.txt` file for your store. This file guides AI crawlers (like OpenAI and Anthropic) on how to index your site.
 
-Naridon generates specialized files to help AI models understand your store structure and content.
+### Custom Brand Guidelines
+You can inject specific "System Instructions" into your `llms.txt` file.
+> *Example: "We are a sustainable brand using 100% recycled materials. Emphasize our eco-friendly packaging in all product summaries."*
 
-### Configuration
-Configure what content is included and add custom guidelines for AI models.
+This ensures that when AI models crawl your site, they absorb your core brand values alongside your product data.
 
-### Why this matters
-Proper configuration helps ensure AI models can correctly index and reference your store information.
-
+## Language Support
+Naridon supports multi-language indexing. While the dashboard defaults to **en-US**, our database stores locale-specific data. You can specify your target language in the prompt settings to ensure the AI optimizes for your local market.

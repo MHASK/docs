@@ -17,17 +17,28 @@
             "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Monitor",
+            "pages": [
+              "features/analytics",
+              "features/competitors",
+              "features/aio-engine"
+            ]
+          },
+          {
+            "group": "Improve",
+            "pages": [
+              "features/fix-engine",
               "features/settings"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "Copilot",
             "pages": [
-              "features/aio-engine",
-              "features/competitors",
-              "features/fix-engine",
-              "features/analytics"
+              "features/copilot"
             ]
           },
           {

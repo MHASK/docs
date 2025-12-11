@@ -1,61 +1,92 @@
 ---
 title: 'GDPR & Data Security'
-description: 'Technical details on data protection, encryption, and compliance'
-icon: 'lock'
+description: 'Comprehensive details on data protection, encryption, and EU compliance'
+icon: 'shield-check'
 ---
 
-## Data Protection Overview
+## 1. Commitment to Data Privacy
 
-Naridon acts as a **Data Processor** for the personal data of your customers. You, the merchant, are the **Data Controller**. We process data only on your behalf and in accordance with your instructions (via the Shopify API).
+Naridon, operated by **Thom & Co GmbH** (Switzerland), is fully committed to compliance with the **General Data Protection Regulation (GDPR)** and the **Swiss Federal Act on Data Protection (FADP)**. We prioritize the security and privacy of both our Merchants and their End-Customers.
 
-## Technical Security Measures
+## 2. Roles & Responsibilities
+
+It is crucial to understand our role in processing data:
+
+- **Merchant Data**: When you (the merchant) install Naridon, we act as a **Data Controller** for your account information (name, email, billing details).
+- **End-Customer Data**: When we process your store's customer queries or search history, we act as a **Data Processor**. You remain the **Data Controller**. We process this data solely on your instructions.
+
+## 3. Lawful Basis for Processing
+
+We process personal data only when we have a lawful basis to do so, in accordance with Article 6 GDPR.
+
+| Data Type | Purpose | Lawful Basis |
+| :--- | :--- | :--- |
+| **Account Information** | To provide the Naridon App service, manage billing, and authentication. | **Contractual Necessity** (Art. 6(1)(b)) |
+| **Product Data** | To index and optimize your store's catalog for AI models. | **Contractual Necessity** (Art. 6(1)(b)) |
+| **Customer Queries (Search)** | To provide AI search results and analytics to the merchant. | **Legitimate Interest** (Art. 6(1)(f)) & **Contractual Necessity** |
+| **Usage Logs** | To ensure security, debug issues, and improve app performance. | **Legitimate Interest** (Art. 6(1)(f)) |
+| **Marketing Comms** | To send product updates or offers. | **Consent** (Art. 6(1)(a)) |
+
+## 4. International Data Transfers
+
+As a modern SaaS application, we utilize cloud infrastructure that may be located outside of Switzerland/EU (specifically the USA). To ensure your data remains protected, we rely on the following safeguards:
+
+- **Adequacy Decisions**: For transfers to countries recognized by the EU/Switzerland as providing adequate protection.
+- **Standard Contractual Clauses (SCCs)**: For transfers to providers in the USA (e.g., OpenAI, Supabase), we enter into DPA agreements incorporating the standard contractual clauses approved by the European Commission.
+- **Data Privacy Framework**: Where applicable, we prioritize vendors participating in the EU-U.S. Data Privacy Framework.
+
+## 5. Sub-Processors
+
+We use the following third-party sub-processors to provide our service.
+
+| Sub-Processor | Role | Location | Safeguard |
+| :--- | :--- | :--- | :--- |
+| **Shopify** | E-commerce Platform & Identity | Canada (Adequate) / Global | Adequacy / SCCs |
+| **Vercel Inc.** | Cloud Hosting & Edge Functions | USA | SCCs |
+| **Supabase Inc.** | Database & Vector Storage | USA (AWS East) | SCCs |
+| **OpenAI, LLC** | LLM Inference (Zero Retention) | USA | SCCs |
+| **Anthropic, PBC** | LLM Inference (Zero Retention) | USA | SCCs |
+
+*Note: We have signed specific "Zero Data Retention" agreements with our AI providers where available, ensuring they do not use your data to train their models.*
+
+## 6. Data Subject Rights
+
+Under GDPR, you (and your customers) have the following rights:
+
+1.  **Right of Access**: Request a copy of the personal data we hold about you.
+2.  **Right to Rectification**: Request correction of inaccurate or incomplete data.
+3.  **Right to Erasure ("Right to be Forgotten")**: Request deletion of your personal data, subject to legal retention obligations.
+4.  **Right to Restriction**: Request that we restrict the processing of your data.
+5.  **Right to Data Portability**: Request your data in a structured, commonly used format.
+6.  **Right to Object**: Object to processing based on legitimate interests.
+
+To exercise these rights, please contact our Data Protection Officer at **[privacy@naridon.com](mailto:privacy@naridon.com)**.
+
+## 7. Technical & Organizational Measures (TOMs)
+
+We implement state-of-the-art security measures to protect data:
 
 ### Encryption
-- **Data in Transit**: All data transmitted between your Shopify store, our servers, and third-party LLM providers is encrypted using **TLS 1.2+** (Transport Layer Security).
-- **Data at Rest**: All database volumes and backups are encrypted using **AES-256** encryption standards.
+- **In Transit**: TLS 1.2+ encryption for all data moving between Shopify, our servers, and the client.
+- **At Rest**: AES-256 encryption for all database volumes and backups.
 
-### Infrastructure
-- **Hosting**: Our infrastructure is hosted on secure, enterprise-grade cloud providers with SOC 2 Type II certification.
-- **Access Control**: Access to production data is restricted to authorized engineers on a strictly need-to-know basis, protected by Multi-Factor Authentication (MFA).
+### Access Control
+- **Role-Based Access**: Internal access is restricted to engineering staff with a specific business need.
+- **MFA**: Multi-Factor Authentication is enforced for all administrative access.
 
-## GDPR Compliance
+### Availability & Resilience
+- **Backups**: Automated daily backups with point-in-time recovery.
+- **Redundancy**: Critical services are deployed across multiple availability zones.
 
-We are fully committed to GDPR compliance. Here is how we support your obligations:
+## 8. Data Breach Notification
 
-### 1. Right to Erasure (Right to be Forgotten)
-When a customer requests data deletion via your Shopify Admin:
-- Shopify notifies us through their standard data deletion process.
-- We automatically identify all chat logs, analytics, and session data associated with that customer.
-- We purge this data from our systems promptly in accordance with GDPR requirements.
-- We confirm the deletion to Shopify.
+In the event of a personal data breach, we will notify:
+- The competent supervisory authority within **72 hours**, unless the breach is unlikely to result in a risk to rights and freedoms.
+- Affected controllers (Merchants) without undue delay, providing sufficient information to allow you to meet your own notification obligations.
 
-### 2. Right to Access
-If a customer requests a copy of their data:
-- Shopify notifies us through their standard data request process.
-- We compile an export of all conversations and interactions stored for that customer.
-- This is returned to Shopify to be forwarded to the customer.
+## 9. Contact Information
 
-### 3. Data Minimization
-We only store data required to provide the service:
-- **Product Data**: To power the search index.
-- **Anonymized Analytics**: Aggregate counts of searches and clicks.
-- **Chat Logs**: Retained for a limited period to allow for quality improvement and analytics, then anonymized.
-
-## Sub-Processors
-
-Naridon uses the following third-party sub-processors to provide our service. All sub-processors are vetted for security and compliance.
-
-| Sub-Processor | Purpose | Location |
-| :--- | :--- | :--- |
-| **Shopify** | E-commerce Platform & Auth | Canada / Global |
-| **AI Service Providers** | LLM Inference (Zero Retention) | Various |
-| **Cloud Infrastructure Providers** | Hosting & Database | Global |
-
-*> Note: We have opted out of data training with our LLM providers. Your store data is NOT used to train OpenAI or Anthropic models.*
-
-## Incident Response
-
-In the event of a data breach, Naridon has an Incident Response Plan in place.
-- **Detection**: 24/7 monitoring of infrastructure.
-- **Notification**: We will notify affected merchants promptly in accordance with applicable data protection regulations.
-
+**Data Protection Officer (DPO)**
+Thom & Co GmbH
+Scherzingerstasse 16, 8598 Bottighofen, Switzerland
+Email: [privacy@naridon.com](mailto:privacy@naridon.com)
