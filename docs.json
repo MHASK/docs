@@ -58,7 +58,8 @@
             "group": "Support",
             "pages": [
               "contact",
-              "faq"
+              "faq",
+              "changelog"
             ]
           }
         ]
