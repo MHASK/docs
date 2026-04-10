@@ -1,0 +1,99 @@
+---
+title: "Troubleshooting"
+description: "Common errors from the Naridon MCP server and what to do about them."
+---
+
+The MCP server in v0.4.0 returns LLM-readable error hints — your AI tool can usually self-correct just by reading them. If it can't, here's the manual fallback for each.
+
+## "Authentication failed (401)"
+
+Your API key is missing, expired, or revoked.
+
+**Fix:**
+1. Generate a new key in [Settings → API Keys](https://app.naridon.com/settings?tab=apiKeys)
+2. Update `NARIDON_API_KEY` in your AI tool's MCP config
+3. Restart the AI tool
+
+## "Forbidden (403)"
+
+Your API key is missing the scope this tool needs.
+
+**Fix:**
+1. Ask your AI to call the `whoami` tool to see your current scopes
+2. Re-create the key in **Settings → API Keys** with the missing scope checked
+3. Update the config and restart
+
+The 8 scopes are: `read:dashboard`, `read:fixes`, `read:prompts`, `read:competitors`, `write:fixes`, `write:prompts`, `write:autopilot`, `trigger:scan`.
+
+## "Not found (404)"
+
+The resource ID is wrong, or it belongs to a different shop.
+
+**Fix:** Tell your AI to use a list/search tool first (e.g. `get_fix_suggestions`) to find the correct ID.
+
+## "Rate limited (429)"
+
+You've hit the API key's rate limit (default 300 requests/minute).
+
+**Fix:**
+- Wait 60 seconds and retry
+- Or raise the limit in **Settings → API Keys** → edit the key
+
+## "Could not reach Naridon API"
+
+Network error — the server can't reach `app.naridon.com`.
+
+**Fix:**
+1. Check `NARIDON_API_URL` is correct (default: `https://app.naridon.com/api/v1`)
+2. If on a corporate network, ensure HTTPS to `app.naridon.com` is allowed
+3. If running locally, make sure the backend is up
+
+## "No Naridon credentials configured"
+
+The MCP server started but neither `NARIDON_API_KEY` nor `NARIDON_API_TOKEN` was set.
+
+**Fix:** Add `NARIDON_API_KEY` to the `env` block in your tool's MCP config. See [Manual setup](/integrations/mcp/manual-setup).
+
+## The AI tool doesn't see Naridon at all
+
+The MCP server isn't being launched. Causes:
+
+- The config file wasn't saved, or has invalid JSON → re-run `npx @naridon/mcp-server install` to rewrite it cleanly
+- You didn't restart the AI tool after editing the config
+- `npx` isn't on the AI tool's `PATH` → install Node.js 18+
+
+**Fix:** Quit the AI tool fully (not just close window), then reopen.
+
+## CLI installer says "Browser auth timed out"
+
+You took longer than 5 minutes to authorize, or you closed the browser tab.
+
+**Fix:** Re-run `npx @naridon/mcp-server install` and complete the browser flow within 5 minutes.
+
+## CLI installer says "Could not deliver key to your CLI"
+
+The dashboard tried to POST the key back to your loopback server, but the installer wasn't listening anymore.
+
+**Causes:**
+- You canceled the installer with Ctrl+C
+- A firewall is blocking `127.0.0.1` connections
+- The loopback port was already in use
+
+**Fix:** Re-run the installer. The server picks a fresh random port each time.
+
+## "Verification failed" after manual setup
+
+The key you pasted doesn't authenticate against the API.
+
+**Fix:**
+1. Generate a fresh key — copy the **whole** value (it's long)
+2. Make sure there are no leading/trailing spaces
+3. Confirm `NARIDON_API_URL` matches the environment the key was created in (production vs staging)
+
+## Still stuck
+
+The fastest path to a fix: ask your AI tool
+
+> *"Call the whoami tool, then call get_dashboard, and tell me exactly what each one returned."*
+
+Send the output to **support@naridon.com**.

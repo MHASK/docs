@@ -4,6 +4,33 @@ description: 'Latest product updates and improvements'
 icon: 'list-check'
 ---
 
+<Update label="April 2026" description="MCP Server v0.4.0 — Zero-config install">
+  ## Naridon MCP Server v0.4.0
+
+  Use Naridon directly from Claude Code, Cursor, Windsurf, Claude Desktop, or any MCP-compatible AI assistant — with a one-command install.
+
+  ### One-line install
+  ```bash
+  npx @naridon/mcp-server install
+  ```
+  The installer detects your AI tools, signs you in via browser, and writes the config files for you. Supports both **global** (use everywhere) and **project** scope.
+
+  ### No more `shopId`
+  Tools that used to require a `shopId` argument now resolve it automatically from your API key. The LLM never has to guess which shop you're working with — `whoami` reports it explicitly.
+
+  ### Per-shop API keys
+  Generate scoped, revocable keys from **Settings → API Keys**. Pick exactly which permissions a key gets (read-only, write-fixes, trigger-scans, etc.).
+
+  ### LLM-readable errors
+  Every error from the server is written for an AI to read and self-correct. 401, 403, 404, 429, and network errors all include the exact next step.
+
+  ### New tools
+  - `whoami` — identity context for the current key
+  - `list_shops` — all shops accessible from a multi-shop key
+
+  See the new [MCP integration docs](/integrations/mcp).
+</Update>
+
 <Update label="December 2025" description="v2.0 - The Intelligence Update">
   ## New Core Features
   

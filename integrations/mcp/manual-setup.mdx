@@ -1,0 +1,135 @@
+---
+title: "Manual setup"
+description: "Edit your AI tool's MCP config file by hand. Pick this if you don't want to run the installer."
+---
+
+## 1. Generate an API key
+
+1. Sign in to [Naridon](https://app.naridon.com)
+2. Go to **Settings → API Keys**
+3. Click **Generate API Key**
+4. Pick the scopes you need (start with read-only if unsure)
+5. Copy the key — it starts with `nrd_`. **You only see it once.**
+
+## 2. Add Naridon to your AI tool's MCP config
+
+<Tabs>
+  <Tab title="Claude Code (global)">
+    Edit `~/.claude.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "naridon": {
+          "command": "npx",
+          "args": ["-y", "@naridon/mcp-server"],
+          "env": {
+            "NARIDON_API_KEY": "nrd_your_api_key_here"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Claude Code (project)">
+    Create `.mcp.json` in your project root:
+
+    ```json
+    {
+      "mcpServers": {
+        "naridon": {
+          "command": "npx",
+          "args": ["-y", "@naridon/mcp-server"],
+          "env": {
+            "NARIDON_API_KEY": "nrd_your_api_key_here"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Cursor">
+    Edit `~/.cursor/mcp.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "naridon": {
+          "command": "npx",
+          "args": ["-y", "@naridon/mcp-server"],
+          "env": {
+            "NARIDON_API_KEY": "nrd_your_api_key_here"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Windsurf">
+    Edit `~/.codeium/windsurf/mcp_config.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "naridon": {
+          "command": "npx",
+          "args": ["-y", "@naridon/mcp-server"],
+          "env": {
+            "NARIDON_API_KEY": "nrd_your_api_key_here"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+
+  <Tab title="Claude Desktop">
+    Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or the equivalent on your OS:
+
+    ```json
+    {
+      "mcpServers": {
+        "naridon": {
+          "command": "npx",
+          "args": ["-y", "@naridon/mcp-server"],
+          "env": {
+            "NARIDON_API_KEY": "nrd_your_api_key_here"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## 3. Restart your AI tool
+
+The MCP server is started fresh each time the tool launches. After saving your config, fully quit and reopen the tool.
+
+## 4. Verify
+
+Ask the tool:
+
+> *"Call the whoami tool."*
+
+You should get back your shop name, plan, and the scopes the key has.
+
+## Environment variables
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `NARIDON_API_KEY` | Yes | — | Per-shop API key. Starts with `nrd_`. |
+| `NARIDON_API_URL` | No | `https://app.naridon.com/api/v1` | API base URL. Override for staging. |
+| `NARIDON_SHOP_ID` | No | (resolved from key) | Override the shop the key resolves to. Only for multi-shop keys. |
+
+For **staging**, set:
+
+```json
+"env": {
+  "NARIDON_API_KEY": "nrd_...",
+  "NARIDON_API_URL": "https://api-staging.naridon.com/api/v1"
+}
+```

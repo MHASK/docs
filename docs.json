@@ -42,6 +42,16 @@
             ]
           },
           {
+            "group": "Integrations",
+            "pages": [
+              "integrations/mcp/index",
+              "integrations/mcp/quickstart",
+              "integrations/mcp/manual-setup",
+              "integrations/mcp/tools-reference",
+              "integrations/mcp/troubleshooting"
+            ]
+          },
+          {
             "group": "Security & Compliance",
             "pages": [
               "trust-safety",
