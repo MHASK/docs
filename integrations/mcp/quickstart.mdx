@@ -1,0 +1,76 @@
+---
+title: "Quickstart"
+description: "Connect Naridon to your AI tool in under 60 seconds. One command, zero JSON editing."
+---
+
+## One command
+
+```bash
+npx @naridon/mcp-server install
+```
+
+That's it. The installer guides you through the rest:
+
+<Steps>
+  <Step title="Detects your AI tools">
+    The installer scans for Claude Code, Cursor, Windsurf, Claude Desktop, Cline, and Continue. You pick which to configure (or all of them).
+  </Step>
+  <Step title="Picks scope">
+    Choose **global** (use Naridon in every project) or **project** (only this directory's `.mcp.json`).
+  </Step>
+  <Step title="Signs you in">
+    Opens your browser to Naridon. You're already logged in, so one click authorizes the CLI. The dashboard mints a scoped API key and sends it to the installer over a loopback address.
+  </Step>
+  <Step title="Writes your config">
+    The installer adds Naridon to your AI tool's MCP config, preserving any other servers you already have.
+  </Step>
+  <Step title="Verifies the connection">
+    Calls `/whoami` to confirm the key works, prints which shop and plan you're connected to.
+  </Step>
+</Steps>
+
+After it finishes, restart your AI tool and ask:
+
+> *"What's my Naridon visibility score?"*
+
+<Note>
+  If you'd rather not run a script, see [Manual setup](/integrations/mcp/manual-setup) for the JSON config.
+</Note>
+
+## What gets created
+
+A new API key on your shop named something like `CLI install 2026-04-10` with these scopes:
+
+- `read:dashboard`
+- `read:fixes`
+- `read:prompts`
+- `read:competitors`
+- `write:fixes`
+- `write:prompts`
+- `trigger:scan`
+
+You can review and revoke it any time from **Settings → API Keys** in the dashboard.
+
+## Re-running the installer
+
+Safe to run as many times as you want. Existing config entries are preserved — only the `naridon` MCP server entry is updated.
+
+```bash
+# Add Naridon to a different AI tool
+npx @naridon/mcp-server install
+
+# Add Naridon to a project (after running globally first)
+cd ~/my-project
+npx @naridon/mcp-server install
+# pick "Project" scope
+```
+
+## Troubleshooting
+
+If something looks wrong, the most useful thing you can do is ask your AI tool:
+
+> *"Call the whoami tool and tell me which shop I'm connected to."*
+
+The `whoami` tool reports your shop, organization, plan, and the scopes the key has — almost every "it's not working" issue is diagnosable from that single response.
+
+For more, see the [Troubleshooting](/integrations/mcp/troubleshooting) page.

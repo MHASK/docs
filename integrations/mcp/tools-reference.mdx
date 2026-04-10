@@ -1,0 +1,106 @@
+---
+title: "Tools reference"
+description: "All 45 tools the Naridon MCP server exposes, grouped by area."
+---
+
+The MCP server in v0.4.0 exposes 45 tools. **You almost never need to pass `shopId`** — every shop-scoped tool resolves it automatically from your API key.
+
+## Identity (start here)
+
+| Tool | Description |
+|------|-------------|
+| `whoami` | Which shop, organization, plan, and scopes the current API key has. Call this first if you're unsure which store the AI is connected to. |
+| `list_shops` | All shops accessible from the current key (one in most cases). |
+
+## Monitoring
+
+| Tool | Description |
+|------|-------------|
+| `get_dashboard` | Visibility trends, sentiment, share of voice, citations, top performing prompts. |
+| `get_prompt_rankings` | Position and visibility per tracked prompt across AI engines. |
+| `get_competitors` | Competitor analysis — strength, gaps, mentions alongside your brand. |
+
+## Optimization
+
+| Tool | Description |
+|------|-------------|
+| `get_store_stats` | Optimization counts — fixes applied, pending, scan status. |
+| `get_fix_suggestions` | Pending fix suggestions with reasoning. |
+| `apply_fix` | Apply a fix to your store via the platform adapter. |
+| `approve_fix` | Move a drafted fix from `PROPOSED` to `APPROVED`. |
+| `revert_fix` | Restore original content for an applied fix. |
+| `trigger_scan` | Run a fresh optimization scan over all products. |
+| `get_autopilot_status` | Autopilot mode, recent activity, agent toggles. |
+| `update_autopilot_settings` | Update autopilot mode (`WATCH`, `ASSIST`, `AUTOPILOT`), daily limits, agent toggles. |
+| `get_model_performance` | Which LLMs produce the best fixes per task type, cost per fix. |
+
+## Prompts
+
+| Tool | Description |
+|------|-------------|
+| `create_prompt` | Track a new AI search query for visibility monitoring. |
+| `run_prompt_analysis` | Run analysis for a prompt across Google AI, ChatGPT, Perplexity. |
+
+## CMS — pages
+
+| Tool | Description |
+|------|-------------|
+| `cms_list_pages` | List CMS pages with pagination, sorting, field selection. |
+| `cms_get_page` | Get a single page including content blocks and SEO. |
+| `cms_create_page` | Create a page with title, slug, content, and full SEO/OG metadata. |
+| `cms_update_page` | Update any subset of page fields. |
+| `cms_publish_page` | Make a page live. |
+| `cms_unpublish_page` | Revert a page to draft. |
+| `cms_delete_page` | Permanently delete a page. |
+
+## CMS — content types & entries
+
+| Tool | Description |
+|------|-------------|
+| `cms_list_content_types` | List custom content types. |
+| `cms_create_content_type` | Define a new content type with field schema. |
+| `cms_delete_content_type` | Delete a content type and all its entries. |
+| `cms_list_entries` | List entries for a content type. |
+| `cms_create_entry` | Create an entry. |
+| `cms_update_entry` | Update an entry. |
+| `cms_delete_entry` | Delete an entry. |
+
+## CMS — media, SEO, export
+
+| Tool | Description |
+|------|-------------|
+| `cms_list_media` | List uploaded media files. |
+| `cms_get_seo` | SEO metadata for a page. |
+| `cms_export` | Export all CMS content as JSON. |
+
+## CMS — i18n
+
+| Tool | Description |
+|------|-------------|
+| `cms_list_translations` | List locale variants of a page. |
+| `cms_create_translation` | Create a translation of a page. |
+| `cms_list_entry_translations` | List locale variants of a content type entry. |
+
+## CMS — preview & roles
+
+| Tool | Description |
+|------|-------------|
+| `cms_generate_preview` | Generate a preview token + URL for an unpublished page. |
+| `cms_preview_entry` | Same for a content type entry. |
+| `cms_list_roles` | List CMS role assignments. |
+| `cms_create_role` | Assign a CMS role (`ADMIN`, `EDITOR`, `AUTHOR`, `VIEWER`) to a user. |
+| `cms_update_role` | Change a role assignment. |
+| `cms_delete_role` | Remove a role assignment. |
+
+## Catalog (Naridon Shop)
+
+| Tool | Description |
+|------|-------------|
+| `catalog_search` | Search the global product directory by keyword, category, vendor, price. |
+| `catalog_product` | Full product details — AI summary, specs, FAQ, reviews. |
+| `catalog_compare` | Side-by-side comparison of 2-5 products. |
+| `catalog_categories` | All categories with product counts. |
+
+## Optional `shopId` parameter
+
+Tools that act on shop data accept an optional `shopId` argument. **You should not pass it** — the server auto-resolves it from your API key. The only reason to pass it is if you have a multi-shop key and want to act on a non-default shop.
