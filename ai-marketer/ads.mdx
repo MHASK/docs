@@ -1,0 +1,60 @@
+---
+title: "Ads Studio"
+description: "Connect ad accounts, see performance, and build paused campaigns that only spend after you enable them."
+icon: "bullhorn"
+---
+
+**Ads Studio** (`/ai/ads`, **Ads** in the sidebar) connects your ad accounts, reports on them, and builds campaigns for you to review.
+
+Ads Studio needs an active plan.
+
+## Tabs
+
+With an ad account connected: **Ad Manager**, **Inbox**, **Creative insights** (switched on per workspace), **Creative**, **Audiences**, **Product Feeds**, **Competitor ads**.
+
+Without one: **Connections**, **Creative**, **Product Feeds**, **Competitor ads**.
+
+## Connecting an ad account
+
+Supported: Google Ads, Meta (Facebook and Instagram) Ads, Microsoft Advertising, LinkedIn, TikTok, Pinterest, Reddit, Amazon. A platform shows *Needs setup on this workspace* if it is not available on your Naridon account yet.
+
+1. Choose the platform and sign in. Naridon asks for:
+   - **Meta**: `ads_read`, `ads_management`
+   - **Google**: Google Ads access
+   - **Microsoft**: Microsoft Advertising access (offline access so syncing continues)
+2. **Choose account**: pick the ad account to use.
+
+Statuses: *Connected · account*, *Connected · choose an ad account*, *Access expired · reconnect to keep reporting*.
+
+**Disconnect** removes the stored credentials. It works even without a plan.
+
+## Reporting
+
+Ad Manager shows spend, impressions, clicks, conversions and conversion value from the platform. Naridon calculates CTR, CPC, CPA and ROAS from those numbers. You can also ask AI Marketer about ad performance.
+
+## Building a campaign
+
+**Build a paused campaign** → **Create paused campaign**. *Nothing spends until you enable it.*
+
+You (or AI Marketer) provide: name, objective (traffic, conversions, awareness or leads), daily budget, landing page, 1–25 countries, and for search campaigns keywords, headlines, descriptions and max CPC. UTM tags and an `nrd_id` are added to the landing page automatically (see [Link tagging](/ai-marketer/attribution#link-tagging-utm-and-nrd-id)).
+
+### Meta campaigns
+
+<Warning>
+Naridon creates the Meta campaign (paused) and, for traffic and awareness objectives, an ad set. It does **not** create the ad itself yet.
+
+- *Meta ads need a Facebook Page and an image or video; add the ad in Ads Manager before launching.*
+- *Conversion and lead ad sets need a pixel event or lead form; add the ad set in Ads Manager.*
+</Warning>
+
+Your Meta ad account must be linked to a Facebook Page (and an Instagram account if you advertise there). The same Page is what [Ad responders](/ai-marketer/ad-responders) reads leads, comments and DMs from.
+
+## Enabling, pausing and budgets
+
+Enabling a campaign shows *Enable this campaign?* and explains that it starts serving ads and spending its daily budget. Budget changes and enabling always need your confirmation, in the app and in chat (AI Marketer labels them **Spends**). Daily budgets are capped at 1,000,000 in account currency.
+
+API keys cannot change ads (*API keys cannot change ads. Sign in to Naridon to do this.*).
+
+## Credits
+
+AI-written ad copy costs 1 credit per request.

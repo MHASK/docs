@@ -1,0 +1,83 @@
+---
+title: "Attribution"
+description: "Visits and revenue from AI answers and campaigns, what Naridon's changes did, and how links are tagged (UTM and nrd_id)."
+icon: "chart-pie"
+---
+
+**Attribution** (`/ai/attribution`) shows how many visits and how much revenue came from AI assistants and from your marketing, and what Naridon's changes did.
+
+<Note>
+Attribution is switched on per workspace. If it is off you will see *Attribution is not turned on for this workspace*; ask your Naridon contact.
+</Note>
+
+## Sections
+
+- **Visits from AI answers**, **Revenue from AI answers**, **AI share of revenue / visits**
+- **By source**: ChatGPT, Perplexity, Gemini, Copilot, Claude and others
+- **Pages AI answers send people to**
+- **AI-referred visits over time**
+- **What Naridon's changes did**: for each applied fix or published page, AI-referred results in the 28 days before and after
+- **AI crawlers**: which AI bots read which pages. Upload server logs, or connect Cloudflare.
+- **Backlink authority**
+
+## Where the data comes from
+
+Revenue and visits are read from, in order of what is connected:
+
+- Google Analytics 4
+- Shopify orders, WooCommerce orders
+- The [Naridon tracking script](/setup/tracking-script)
+- Stripe
+- CRM deals
+
+With nothing connected the page says *Connect Google Analytics 4 or install the Naridon tracking script. The daily sync fills this page in.*
+
+## Models
+
+- **Last touch** (default): the last arrival that was not direct gets the credit.
+- **First touch**: the first tagged arrival gets the credit.
+
+Lookback is 90 days.
+
+## Channels
+
+Visits are grouped into: Google Ads, Meta Ads, Microsoft Ads, LinkedIn Ads, TikTok Ads, Pinterest Ads, Reddit Ads, Amazon Ads, other paid, organic social, email, AI, organic search, referral and direct.
+
+## Link tagging (UTM and nrd_id)
+
+Links that Naridon creates (ads it builds, social posts it publishes, campaigns) are tagged so visits and revenue can be traced back.
+
+**UTM parameters**: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`.
+
+| Channel | utm_source | utm_medium |
+|---|---|---|
+| Google Ads | `google` | `cpc` |
+| Microsoft Ads | `bing` | `cpc` |
+| Meta Ads | `facebook` | `paid_social` |
+| Other paid social | network name | `paid_social` |
+| Amazon Ads | `amazon` | `cpc` |
+| ChatGPT ads | `chatgpt` | `cpc` |
+| Organic social posts | network name | `social` |
+| Email | `naridon` | `email` |
+
+Campaign and content values are lower-case slugs. If your link already has UTM parameters, Naridon keeps yours. Links to social networks, link shorteners and app stores are never tagged.
+
+**`nrd_id`**: Naridon adds its own id so a visit can be tied to the exact item that sent it.
+
+| Prefix | Item |
+|---|---|
+| `sp_<id>` | A social post (also sets `utm_content=post-<id>`) |
+| `ad_<id>` | An ad draft |
+| `cmp_<id>` | A campaign Naridon built |
+
+Older links may carry `nrd_ad_id`; it is still read.
+
+**Click ids** from ad platforms are captured too: `gclid`, `gbraid`, `wbraid`, `fbclid`, `li_fat_id`, `ttclid`, `epik`, `rdt_cid`, `msclkid`.
+
+### How a visit is matched to revenue
+
+The tracking script stores the first and last tagged arrival in a first-party cookie (`_naridon_touch`, 90 days) and gives the visitor an anonymous id (`_naridon_shopper_id`, 365 days). Orders recorded by the script, the Shopify purchase pixel or your shop platform are joined to that visitor. For Stripe, pass the shopper id as `client_reference_id` or in metadata.
+
+## AI crawlers
+
+Upload an access log (combined log format or CSV, up to 25 MB) or connect Cloudflare to see which AI crawlers (GPTBot, ClaudeBot, PerplexityBot and others) fetch which pages. The tracking script ignores bots, so crawler data only comes from logs or Cloudflare.

@@ -1,0 +1,87 @@
+---
+title: "Install the tracking script"
+description: "Add Naridon's tracking script to your site, record conversions, and verify the install."
+icon: "code"
+---
+
+The tracking script records visits from AI assistants and campaigns, page views, conversions and Core Web Vitals. It feeds [Attribution](/ai-marketer/attribution) and goal metrics.
+
+Shopify stores don't need the snippet: turn on the **Naridon AI Tracking** app embed in your theme editor. Purchases are recorded by the **Naridon Purchase Pixel** web pixel the app installs.
+
+## 1. Copy the snippet
+
+Open **Settings › Tracking**. Your snippet already contains your workspace id and domain:
+
+```html
+<script async src="https://cdn.naridon.com/tracker.js"
+  data-shop-id="YOUR_WORKSPACE_ID"
+  data-shop-domain="example.com"></script>
+```
+
+Optional attributes:
+
+| Attribute | Use |
+|---|---|
+| `data-conversion-path` | Path of your order confirmation page. On that page the script waits up to 5 seconds for `window.__naridon_conversion_data` (same fields as below) and records it. |
+| `data-api-url` | Only if Naridon support gives you a different API address |
+
+## 2. Add it inside `<head>` on every page
+
+Settings › Tracking has step-by-step instructions for each platform: Vercel, Netlify, Cloudflare Pages, WordPress, Webflow, Google Tag Manager, Cloudflare Zaraz and custom sites.
+
+<Tabs>
+  <Tab title="WordPress">
+    Install the Naridon plugin and turn on **Enable Visitor Tracking**. No code needed.
+  </Tab>
+  <Tab title="Google Tag Manager">
+    Add a **Custom HTML** tag with the snippet, triggered on **All Pages**.
+  </Tab>
+  <Tab title="Custom site">
+    Paste the snippet before `</head>` in your layout or template so it is on every page.
+  </Tab>
+</Tabs>
+
+Single-page apps are supported: route changes are recorded as page views.
+
+## 3. Record conversions
+
+If your checkout isn't on Shopify, call this on your order confirmation page:
+
+```js
+window.naridon('conversion', {
+  orderId: 'ORDER-1001',
+  totalAmount: 129.00,
+  currency: 'EUR',
+  lineItems: [{ productId: 'SKU-1', quantity: 1, price: 129.00 }]
+});
+```
+
+`lineItems` is optional and stored as you send it. Alternatively set `window.__naridon_conversion_data` to the same object on the confirmation page and add `data-conversion-path` to the snippet.
+
+Sign-ups and leads are recorded with `window.naridon('signup', { topic: 'newsletter', email })`, or `{ topic, externalId }` if your form tool has its own id. The email is only used to build a hashed de-duplication key on Naridon's server; it is not stored.
+
+## 4. Verify
+
+Press **Verify installation**. Naridon checks that your domain resolves, that the snippet for this workspace is in your homepage `<head>`, and whether events arrived in the last 7 days.
+
+| Result | Meaning |
+|---|---|
+| *Receiving events from example.com · N in the last 7 days* | Working. This also [verifies your domain](/setup/domain-verification). |
+| *Script found on example.com · no events received in the last 7 days* | Installed; open your site in a normal browser and check again. |
+| *Script not found on example.com* | The snippet is missing from the homepage `<head>` or has a different workspace id. |
+| *example.com didn't resolve* | DNS problem with the domain. |
+
+If your plan has ended, the page shows *Tracking is paused*.
+
+## What it stores
+
+| Cookie | Lifetime | Purpose |
+|---|---|---|
+| `_naridon_shopper_id` | 365 days | Anonymous visitor id used to join visits and orders |
+| `_naridon_session_id` | 30 minutes | Current visit |
+| `_naridon_touch` | 90 days | First and last tagged arrival (UTMs, click ids, `nrd_id`) |
+| `_naridon_attribution_id` | 30 minutes | Links a conversion to its visit |
+
+These are first-party cookies on your domain. The script does not check a consent banner on its own; if your site needs consent for analytics cookies, load the snippet through your consent tool (for example a consent-gated GTM tag).
+
+Bots and crawlers are ignored. To see AI crawler activity, upload server logs or connect Cloudflare in [Attribution](/ai-marketer/attribution#ai-crawlers).

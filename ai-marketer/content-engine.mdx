@@ -1,0 +1,68 @@
+---
+title: "Content engine"
+description: "How Naridon drafts content, the review states, and where drafts are published."
+icon: "pen-nib"
+---
+
+The content engine writes drafts aimed at the prompts you track and the goals you set: FAQ pages, blog posts, comparison and landing pages, collection descriptions, structured data, internal links and more. It uses your brand voice and what competitors are cited for.
+
+Turn it on with the **Write drafts** setting. Drafts appear in [Approvals](/ai-marketer/approvals) under **Content**, and you can ask for drafts in [AI Marketer](/ai-marketer/chat) at any time.
+
+## Draft types
+
+Each type has a risk level, which decides whether it can be published without review under your [autonomy mode](/ai-marketer/approvals#autonomy-modes).
+
+| Type | Risk |
+|---|---|
+| Internal link injection | Low |
+| Structured data | Medium |
+| Collection description | Medium |
+| FAQ page | Medium |
+| Blog post | High |
+| Comparison page | High |
+| Landing page | High |
+| Email draft | High |
+| SMS draft | High |
+| Image | High |
+| Content refresh | High |
+| Review reply | Critical |
+| Reddit reply | Critical |
+| X reply | Critical |
+
+## Statuses
+
+| Status | Meaning |
+|---|---|
+| Generating | Being written |
+| Failed | Writing failed; ask again or regenerate |
+| Draft | Written, not yet sent for review |
+| Needs review | Waiting for you |
+| Approved | Approved, not yet live |
+| Live | Published |
+| Ready for you | Handed to you to post yourself (for example replies on other sites) |
+| Rejected | Rejected |
+| Reverted | Was live and has been taken down |
+
+A live draft can only be reverted. Rejected, reverted and handed-off drafts are final; ask for a new draft instead.
+
+## Where drafts are published
+
+FAQ pages, blog posts, landing pages and comparison pages let you choose a destination in **Publish to**:
+
+- **Default destination**
+- **Naridon CMS**
+- **Online Store page** (Shopify)
+- **Blog article · *blog name*** (Shopify)
+- A connected CMS: WordPress, Ghost, Notion, Wix, or a webhook (for example for Framer)
+
+Webflow, Drupal, Contentful and Strapi connections are not publish targets for drafts.
+
+Other draft types go to their natural place (for example structured data to the product or page it belongs to).
+
+## Editing
+
+In the web app the draft drawer is read-only; ask AI Marketer for changes or regenerate. The embedded Shopify app has a full draft editor.
+
+## Not available yet
+
+- AI image generation for drafts.

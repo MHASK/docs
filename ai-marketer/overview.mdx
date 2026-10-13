@@ -1,0 +1,53 @@
+---
+title: "AI Marketer overview"
+description: "What the Naridon web app does, how it is organised, and which parts are turned on per workspace."
+icon: "compass"
+---
+
+Naridon tracks how AI assistants and search engines talk about your brand, finds what to change, makes the changes with your approval, and measures what they did. The web app is built around **AI Marketer**, a chat assistant that can read your data and act in your account, plus pages for the work it produces.
+
+<Note>
+These pages describe the current Naridon web app (the AI Marketer experience). Some areas are switched on per workspace by Naridon. Where that is the case, the page says so. Features that are not shipped yet are marked **Not available yet**.
+</Note>
+
+## Where things are
+
+| Area | Path | What it is for |
+|---|---|---|
+| AI Marketer | `/ai` | Chat with AI Marketer. Ask questions, run reports, have it make changes. |
+| Work & goals | `/ai/work` | Decisions waiting for you, work in progress, new results. |
+| Approvals | `/ai/approvals` | Every proposed change (fixes, content, ads, outreach, chat actions) in one queue. |
+| Goals | `/ai/goals` | Objectives and key results tied to measured metrics. |
+| Monitor | `/monitor` | AI visibility, prompts, citations, sentiment, competitors. |
+| Attribution | `/ai/attribution` | Visits and revenue that came from AI answers and campaigns. |
+| Ads | `/ai/ads` | Ads Studio: connect ad accounts, report, build paused campaigns. |
+| Ad responders | `/ai/ad-responders` | Leads, comments and DMs from people who answered your ads. |
+| Connectors | `/ai/connectors` | Accounts Naridon reads from. |
+| Settings | `/settings` | Tracking script, search engines, AI permissions, autonomy, API keys. |
+
+## How a change gets made
+
+1. Naridon collects data: prompt tracking in [Monitor](/ai-marketer/monitor), your [tracking script](/setup/tracking-script) and [connectors](/ai-marketer/connectors).
+2. It proposes changes: product and page fixes, content drafts, ad campaigns, outreach.
+3. You approve them in [Approvals](/ai-marketer/approvals) or in chat, or let [autonomy settings](/ai-marketer/approvals#autonomy-modes) apply low-risk ones.
+4. [Attribution](/ai-marketer/attribution) and [Goals](/ai-marketer/goals) show whether they worked.
+
+## Set up checklist
+
+<Steps>
+  <Step title="Add your site">
+    Create a workspace for your domain and [verify that you own it](/setup/domain-verification).
+  </Step>
+  <Step title="Install the tracking script">
+    Follow [Tracking script](/setup/tracking-script) and press **Verify installation**.
+  </Step>
+  <Step title="Connect your data">
+    Connect Google Search Console, Bing, GA4 and any other sources in [Connectors](/ai-marketer/connectors).
+  </Step>
+  <Step title="Add prompts and competitors">
+    Track the questions your customers ask AI assistants in [Monitor](/ai-marketer/monitor).
+  </Step>
+  <Step title="Choose how much Naridon may do on its own">
+    Pick an [autonomy mode](/ai-marketer/approvals#autonomy-modes) and review [AI permissions](/ai-marketer/capabilities-and-approvals).
+  </Step>
+</Steps>
