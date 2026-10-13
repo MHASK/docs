@@ -21,6 +21,41 @@
             ]
           },
           {
+            "group": "AI Marketer",
+            "pages": [
+              "ai-marketer/overview",
+              "ai-marketer/chat",
+              "ai-marketer/capabilities-and-approvals",
+              "ai-marketer/specialist-team",
+              "ai-marketer/work-home",
+              "ai-marketer/approvals",
+              "ai-marketer/goals",
+              "ai-marketer/content-engine"
+            ]
+          },
+          {
+            "group": "Measure",
+            "pages": [
+              "ai-marketer/monitor",
+              "ai-marketer/attribution"
+            ]
+          },
+          {
+            "group": "Ads",
+            "pages": [
+              "ai-marketer/ads",
+              "ai-marketer/ad-responders"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "setup/tracking-script",
+              "setup/domain-verification",
+              "ai-marketer/connectors"
+            ]
+          },
+          {
             "group": "Monitor",
             "pages": [
               "features/analytics",
@@ -71,6 +106,22 @@
               "faq",
               "changelog"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": "api-reference/openapi.json"
           }
         ]
       }

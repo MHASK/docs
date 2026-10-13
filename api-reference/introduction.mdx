@@ -1,0 +1,59 @@
+---
+title: "API introduction"
+description: "Base URL, request format, errors and rate limits for the Naridon REST API."
+icon: "terminal"
+---
+
+The Naridon REST API is the same API the Naridon app uses. With it you can read visibility, prompts, fixes, attribution and goals, manage prompts and content, and talk to AI Marketer from your own tools.
+
+## Base URL
+
+```
+https://app.naridon.com
+```
+
+All endpoints are under `/api/v1/`. Requests and responses are JSON unless an endpoint says otherwise (AI Marketer chat streams Server-Sent Events).
+
+## Quick start
+
+<Steps>
+  <Step title="Create an API key">
+    In Naridon, open **Settings › API keys** and create a key with the scopes you need. Copy it; it is shown once. See [Authentication](/api-reference/authentication).
+  </Step>
+  <Step title="Make a request">
+    ```bash
+    curl https://app.naridon.com/api/v1/data-sources \
+      -H "X-API-Key: nrd_your_key"
+    ```
+  </Step>
+</Steps>
+
+## Errors
+
+Errors return a JSON body with `error` (a message) and often `code`.
+
+| Status | Meaning |
+|---|---|
+| 400 | Invalid input |
+| 401 | Missing, invalid, revoked or expired key or session |
+| 402 | No active plan or trial for this feature |
+| 403 | The key lacks the scope, or the action is not available to API keys |
+| 404 | Not found, or the feature is not switched on for the workspace (for example `code: "not_enabled"`) |
+| 429 | Rate limited. The body includes `retryAfter` (seconds). |
+
+## Rate limits
+
+API keys default to 300 requests per 60 seconds. You can set a different limit (10–10,000) when you create the key.
+
+## What API keys can't do
+
+Some actions need a signed-in person and return 403 for API keys:
+
+- Creating API keys
+- Building, enabling or changing budgets of ad campaigns
+- Uploading AI crawler logs
+- AI Marketer actions that change, publish, spend or delete (the chat API is read-only for keys)
+
+## The reference
+
+Endpoints are grouped by area in the sidebar. Many endpoints have full descriptions; the rest are listed with their path, method and request schema and will be filled in over time.

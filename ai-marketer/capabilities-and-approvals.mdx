@@ -1,0 +1,52 @@
+---
+title: "Capabilities and confirmations"
+description: "What AI Marketer can do in your account, when it asks first, and how to restrict it."
+icon: "shield-check"
+---
+
+AI Marketer acts through **capabilities**: named actions such as *create a prompt*, *apply a fix*, *publish a draft* or *pause a campaign*. Each capability has a risk label, and the label decides whether it runs straight away or asks you.
+
+## Risk labels
+
+| Label | Examples | Runs without asking? |
+|---|---|---|
+| **Read only** | Look up visibility, list fixes, read analytics | Always runs |
+| **Draft** | Write a content draft, draft an ad | Always runs (nothing goes live) |
+| **Makes changes** | Apply a fix, change a setting, create prompts | Depends on your [autonomy mode](/ai-marketer/approvals#autonomy-modes) |
+| **Outward** | Send an email, post a reply, publish to your site | Always asks |
+| **Spends** | Enable a campaign, change a budget | Always asks |
+| **Deletes** | Delete a page, remove data | Always asks |
+
+For **Makes changes**:
+
+| Autonomy mode | Behaviour |
+|---|---|
+| Watch | Always asks |
+| Assist | Runs low and medium risk changes, asks for high and critical |
+| Autopilot | Runs everything except critical changes |
+
+Anything that publishes live is always confirmed.
+
+## Confirmation cards
+
+When AI Marketer needs your approval it shows an **Approval needed** card with the risk label and a preview of exactly what will happen.
+
+- **Approve** runs that action once, with the inputs shown. AI Marketer cannot change them after you approve.
+- **Reject** cancels it. The chat says *Nothing was changed.*
+- **Permissions** opens the AI permissions settings for that capability.
+
+Cards expire after 15 minutes (*Expired. Ask again to redo it.*).
+
+Some actions can only be done by a person and are never run from chat, even with approval: approving items in the Approvals queue on your behalf, changing AI permissions, inviting team members, approving a team plan and sending outreach test emails.
+
+## AI permissions
+
+**Settings › AI permissions** (`/settings/ai-permissions`) lists every capability by area: Visibility, Prompts, Optimization, Approvals, Autopilot, Competitors, Analytics, Keywords, Goals, Outreach, Content, Site, Search Console, Integrations, Workspace, Agents & schedules, Reports, Brand, Credits & plan, Knowledge and Navigation.
+
+For each capability you can set:
+
+- **Default**: follow the rules above.
+- **Always ask**: confirm every time, even if autonomy would let it run.
+- **Never**: AI Marketer may not use it.
+
+Overrides can only make things stricter. Changing them needs the Admin or Owner role.

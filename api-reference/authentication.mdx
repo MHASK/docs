@@ -1,0 +1,47 @@
+---
+title: "Authentication"
+description: "API keys, scopes and session tokens."
+icon: "key"
+---
+
+Send an API key in the `X-API-Key` header:
+
+```bash
+curl https://app.naridon.com/api/v1/attribution/summary?days=30 \
+  -H "X-API-Key: nrd_your_key"
+```
+
+## API keys
+
+Create keys in **Settings › API keys**. Each key belongs to one workspace.
+
+- Choose a **name**, the **scopes**, an optional **expiry** (1–365 days) and a **rate limit** (10–10,000 requests per minute; default 300).
+- The key (`nrd_...`) is shown once. Store it in a secret manager.
+- A workspace can have up to 10 active keys.
+- **Revoke** disables a key immediately.
+
+## Scopes
+
+| Scope | Allows |
+|---|---|
+| `read:dashboard` | Read workspace data (the default scope) |
+| `read:fixes` | Read fixes |
+| `read:prompts` | Read prompts and results |
+| `read:competitors` | Read competitors |
+| `write:fixes` | Apply, approve and revert fixes |
+| `write:prompts` | Create and change prompts |
+| `write:autopilot` | Change autopilot settings |
+| `trigger:scan` | Start scans and prompt runs |
+| `read:cms` | Read Naridon CMS content |
+| `write:cms` | Create and publish Naridon CMS content |
+| `write:logs` | Upload logs |
+
+Write requests are refused unless the key has the matching write scope: a request that isn't mapped to a scope is rejected rather than allowed. A missing scope returns `403 Insufficient scope`.
+
+## Session tokens
+
+The Naridon apps authenticate with a session token sent as `Authorization: Bearer <token>`. Endpoints marked with bearer auth only (such as creating API keys) need a signed-in session and can't be called with an API key.
+
+## Public tracking endpoints
+
+`/api/v1/public/*` endpoints are used by the [tracking script](/setup/tracking-script) and don't take an API key. They use a short-lived token from `POST /api/v1/public/session`, sent as `X-Naridon-Token`.

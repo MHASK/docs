@@ -1,0 +1,41 @@
+---
+title: "Verify your domain"
+description: "Prove you own a site with a meta tag, a DNS TXT record or the tracking script."
+icon: "badge-check"
+---
+
+Verifying a domain proves the workspace belongs to the site's owner. Open the property's details and find the **Domain Verification** card. Your token looks like `nrd-1a2b3c4d`.
+
+## Methods
+
+<Tabs>
+  <Tab title="Meta Tag">
+    Add this to the `<head>` of your homepage:
+
+    ```html
+    <meta name="naridon-verification" content="nrd-1a2b3c4d" />
+    ```
+  </Tab>
+  <Tab title="DNS TXT Record">
+    Add a TXT record on the root of the domain (`@`):
+
+    ```
+    naridon-verify=nrd-1a2b3c4d
+    ```
+
+    You can put it on `_naridon-verify.example.com` instead. *DNS changes can take up to 24 hours to propagate.*
+  </Tab>
+  <Tab title="Tracking script">
+    Install the [tracking script](/setup/tracking-script) and press **Verify installation**. When events are received the domain is verified too.
+  </Tab>
+</Tabs>
+
+Then press **Verify Now**. On success: *Domain verified successfully.*
+
+Use one tag or one record. If Naridon finds more than one verification tag or TXT record it rejects the check; remove the old ones.
+
+AI Marketer can also verify you with a 6-digit code sent to an email address on the domain. The code is valid for 15 minutes and allows 5 attempts.
+
+## If another workspace uses the same domain
+
+Only one web workspace can own a domain. When you verify, other web workspaces for the same domain are deactivated (*The other account will be deactivated once you verify.*).

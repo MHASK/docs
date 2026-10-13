@@ -1,0 +1,39 @@
+---
+title: "Ad responders"
+description: "Collect lead forms, ad comments and DMs from people who answered your ads, and reply with AI-drafted, human-approved messages."
+icon: "inbox"
+---
+
+**Ad responders** (`/ai/ad-responders`) collects everyone who answered your ads in one inbox and drafts replies.
+
+<Note>Ad responders is switched on per workspace.</Note>
+
+Tabs: **Inbox**, **Replies**, **Setup**.
+
+## What is collected
+
+| Source | Facebook | Instagram | LinkedIn |
+|---|---|---|---|
+| Lead form | Yes | Yes | Yes |
+| Ad comment | Yes | Yes | Yes |
+| DM | Yes | Yes | — |
+
+## Requirement: connect the Facebook Page or Instagram account
+
+Meta delivers lead forms, ad comments and DMs to the **Page or Instagram account your ads run from**, not to the ad account. Connecting a Meta ad account in [Ads Studio](/ai-marketer/ads) is not enough.
+
+Connect the Page or Instagram account in **Social**, then in **Setup** press **Subscribe pages** so Naridon receives new responses.
+
+LinkedIn lead forms come from the LinkedIn ad account connected in Ads Studio and are pulled every 10 minutes.
+
+To send leads to your CRM, connect HubSpot or Pipedrive in [Connectors](/ai-marketer/connectors).
+
+## Replies
+
+*Drafted by AI Marketer. Nothing is sent until you approve a reply and press Send.*
+
+Drafts are listed in **Replies** and in [Approvals](/ai-marketer/approvals). Some replies cannot be sent by Naridon:
+
+- DMs older than 24 hours: *The 24-hour window to answer this DM has closed.* (Meta's messaging rule.)
+- Lead form follow-ups: *Lead follow-ups are sent from your own email or CRM. Copy the text.*
+- LinkedIn comments: copy the text and reply on LinkedIn.

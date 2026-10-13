@@ -1,0 +1,56 @@
+---
+title: "Monitor and prompt tracking"
+description: "Track the questions customers ask AI assistants, which engines mention you, and how you compare with competitors."
+icon: "chart-line"
+---
+
+**Monitor** (`/monitor`) shows how AI assistants and search engines answer the questions (prompts) your customers ask, and where your brand appears in those answers.
+
+## Tabs
+
+Visibility, Prompts, Query Fanouts, Platforms, Personas, Sentiment, FactCheck, Citations, Mentions, Gaps and Competitors.
+
+- **Visibility**: Visibility Score and Share of Voice with your rank against competitors. **Download CSV** exports the data.
+- **Prompts**: every tracked prompt and how each engine answered it.
+- **Query Fanouts**: the follow-up searches AI engines run behind a prompt.
+- **Platforms**: results per engine.
+- **Personas**: results per buyer persona.
+- **Sentiment**: how answers describe your brand.
+- **FactCheck**: claims about your brand that may be wrong.
+- **Citations**: which pages AI answers cite.
+- **Mentions**: where your brand is mentioned.
+- **Gaps**: prompts where competitors appear and you don't.
+- **Competitors**: competitor visibility. Competitor pages and prices are checked daily, their keywords weekly.
+
+## Metrics
+
+**Visibility Score** for an answer depends on your position in it: 100 at first place, falling with each position (100 × e<sup>−0.35 × (position − 1)</sup>), and 0 if you are not mentioned or below 10th.
+
+**Share of Voice** = your mentions ÷ all brand mentions × 100.
+
+## Adding prompts
+
+**New prompt** (`/prompts/new`) is a three-step wizard: **Prompt**, **Persona**, **Review**. Set a geographic target if answers differ by country; it defaults to Global.
+
+Other ways to add prompts:
+
+- **Discover**: prompts suggested from your site, products and search data.
+- **Generate from products**: prompts built from your catalogue.
+- **Volumes**: estimated search demand for prompts.
+- Ask AI Marketer: *Add prompts for …*.
+- Naridon also suggests new prompts weekly from mentions it finds.
+
+Limits depend on your plan. During onboarding and trials you can track 5 prompts and 3 competitors. When you hit the limit: *The plan's prompt limit is reached. Pause or remove a prompt first.*
+
+## Engines
+
+Prompts are run on Google AI Overview and Google Search, ChatGPT Search and Perplexity. Gemini, Copilot and Claude can be added depending on your plan.
+
+## How often prompts run
+
+Naridon runs prompts on a schedule that adapts to how much the answers change:
+
+- Each prompt has its own pace between daily and every 28 days.
+- After a change on your site, affected prompts are re-run 1, 2, 3, 7 and 14 days later to measure the effect.
+- Prompts whose answers never change are checked every 30 days.
+- **Pinned** prompts run daily.

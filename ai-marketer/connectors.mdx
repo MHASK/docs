@@ -1,0 +1,69 @@
+---
+title: "Connectors"
+description: "Connect Google Analytics 4, Microsoft Clarity, Search Console, Bing Webmaster Tools, Meta and Microsoft Ads so Naridon can see your data."
+icon: "plug"
+---
+
+The more Naridon can see, the better its answers and the more key results it can measure. Connections live in three places under **Settings › Connections**:
+
+| Page | Path | What is there |
+|---|---|---|
+| Integrations | `/integrations` | Shop platforms, CMS and other apps |
+| Search engines | `/settings/integrations` | Google Search Console, Bing Webmaster Tools, sitemaps, IndexNow, Google Analytics 4 |
+| Connectors | `/ai/connectors` | Accounts Naridon reads from (analytics, social, ads, email, CRM) |
+
+<Note>The Connectors page is switched on per workspace. *Accounts Naridon reads from. Email content is saved as a draft, never sent.*</Note>
+
+The **What Naridon can see** widget shows your data coverage as a percentage and suggests the next source to connect.
+
+## Statuses
+
+| Status | Meaning |
+|---|---|
+| Not available yet | Not offered on your account yet |
+| Not connected | Connect it |
+| Reconnect needed | Access expired or was revoked |
+| Waiting for first sync | Connected, data arriving soon |
+| Synced | Up to date |
+| Out of date | The last successful sync is older than expected |
+| Last sync failed | Naridon will retry; reconnect if it keeps failing |
+
+Connectors sync on their own schedule (checked hourly). The first sync of most connectors back-fills 90 days.
+
+**Disconnect**: *Naridon stops reading from this account and revokes its access. Data already synced stays in your reports.*
+
+For connectors that use a key: *Use a read-only key. It is stored encrypted and never shown again.*
+
+## Google Analytics 4
+
+1. **Settings › Search engines**, GA4 card: sign in with Google (read-only analytics access).
+2. Choose the GA4 property.
+
+Syncs daily, and **Sync now** pulls the latest. GA4 data feeds [Attribution](/ai-marketer/attribution) and goal metrics.
+
+## Microsoft Clarity
+
+1. In Clarity: *your project → Settings → Data Export → Generate new API token.*
+2. Paste the token in Connectors.
+
+Clarity's API only returns recent days, so Naridon syncs one day at a time daily and cannot back-fill history.
+
+## Google Search Console
+
+Sign in with Google and choose the property. Naridon reads search performance and can submit sitemaps.
+
+## Bing Webmaster Tools
+
+Sign in with Microsoft. One click; Naridon reads your Bing sites. You can also turn on IndexNow so changed pages are submitted to Bing and other IndexNow engines.
+
+## Meta (Facebook Pages and Instagram)
+
+Connect with Meta sign-in to read Page and Instagram insights. This is separate from the Meta **ad account**, which you connect in [Ads Studio](/ai-marketer/ads). [Ad responders](/ai-marketer/ad-responders) needs the Page connection.
+
+## Microsoft Advertising
+
+Sign in with Microsoft. Naridon finds up to 10 ad accounts you have access to. The same account can also be managed from [Ads Studio](/ai-marketer/ads).
+
+## CRM
+
+HubSpot and Pipedrive can receive leads from [Ad responders](/ai-marketer/ad-responders) and provide deal revenue for attribution.

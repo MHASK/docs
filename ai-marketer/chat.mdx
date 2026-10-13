@@ -1,0 +1,90 @@
+---
+title: "AI Marketer chat"
+description: "Models, effort, attachments, sharing and credits in the AI Marketer chat."
+icon: "message"
+---
+
+AI Marketer is the chat at `/ai`. It reads your workspace data (visibility, prompts, search, analytics, attribution, ads, content) and can act in your account through [capabilities](/ai-marketer/capabilities-and-approvals). Anything that changes your site, publishes, spends money or deletes something asks you first.
+
+Each conversation has its own URL (`/ai/c/<id>`). Past chats are in the recents list on the left, with **New chat** and a search box (*Find a chat, document or sheet*).
+
+## Starting a chat
+
+The empty chat shows suggested prompts grouped by area, for example:
+
+- **Visibility**: *Good visibility benchmark*, *Negative sentiment drivers*
+- **SEO**: *Keyword gaps*, *Ranking drops*
+- **Content**: *What to write next*, *Pages to refresh*
+
+Type `/` in the composer for shortcuts. They fill the composer with a starting prompt; nothing is sent until you press enter.
+
+| Command | Does |
+|---|---|
+| `/brief` | Brief a video |
+| `/fix` | Fix visibility |
+| `/write` | Write content |
+| `/report` | Run report |
+
+## Model
+
+| Option | Meaning |
+|---|---|
+| **Auto** (default) | Best available model for the request. |
+| **Gemini** | Prefer Google's Gemini models. |
+
+Your choice is remembered in this browser. The model does not change the credit cost.
+
+## Effort
+
+Effort sets how much work AI Marketer does before answering.
+
+| Effort | Use it for | Limits |
+|---|---|---|
+| **Low** | Short, fast answers | Up to 5 tool steps, short answer. Never calls the specialist team. |
+| **Medium** | Balanced | Up to 10 tool steps. Default for API calls. |
+| **High** | Full report with tables and charts | Up to 16 tool steps, long answer. Default in the web app. |
+
+At Medium and High, longer questions can bring in the [specialist team](/ai-marketer/specialist-team).
+
+## Attachments
+
+Attach files with the paperclip or by dropping them on the composer.
+
+- Images: PNG, JPEG, WebP, HEIC, HEIF
+- PDF
+- Text: txt, md, csv, tsv, json, html, xml, yaml, log (up to 120,000 characters are read from a text file)
+
+Limits: 10 MB per file, 6 files per message, 30 MB per message.
+
+## What AI Marketer can return
+
+Besides text, answers can contain tables, charts, documents and sheets (artifacts), confirmation cards for actions, and links that take you to the right page in the app.
+
+## Sharing a chat
+
+Chats are private by default. Open **Share chat**:
+
+- **Who can open it**: *Only you* or *Everyone in the workspace*.
+- **Public link**: **Create link** makes a read-only copy at `/share/chat/<token>`. *Anyone with the link can view.* **Turn off** disables the link.
+
+Only the person who started the chat can change its sharing. **Delete all** removes only your own chats.
+
+## Credits
+
+| Plan | Messages included per month |
+|---|---|
+| Starter | 300 |
+| Growth | 1,500 |
+| Enterprise | 5,000 |
+
+After the monthly allowance, each message costs 1 credit. A tool call that does work (for example drafting content or generating ad copy) costs 1 credit. These are free:
+
+- Read-only lookups
+- Applying or reverting a fix
+- The onboarding chat, until setup is complete
+
+Model and effort do not change the cost. An expired trial has no included messages.
+
+## Using the chat through the API
+
+`POST /api/v1/chat` streams the same conversation as Server-Sent Events. See the [API reference](/api-reference/introduction). API keys can only use read-only capabilities.
